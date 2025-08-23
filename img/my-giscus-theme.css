@@ -1,89 +1,21 @@
-/* --- 二次元风格评论区美化 By Gemini --- */
-
-/* 
-  将下面的 .your-comment-container 替换成你实际的评论区最外层容器选择器。
-  - Waline 通常是: .waline-container
-  - Twikoo 通常是: #Twikoo .tk-main
-  - Giscus 通常是: .giscus
-  请务必用 F12 确认！
-*/
 :root {
-  /* 
-    【重点】背景设置！
-    你可以使用一张你喜欢的动漫图片作为背景。
-    为了让文字清晰可见，我们通常会叠加一个半透明的蒙版。
-  */
-  background-image: linear-gradient(to right, rgba(240, 240, 240, 0.85), rgba(240, 240, 240, 0.85)), url('https://cdn.jsdelivr.net/gh/dev-null-sec/image@main/img/devnull(1).jpg'); /* 替换成你自己的背景图链接 */
-  background-size: cover; /* 背景图覆盖整个容器 */
-  background-position: center; /* 背景图居中显示 */
-  background-attachment: fixed; /* 背景图固定，滚动时不移动，更有层次感 */
-  padding: 25px !important; /* 增加内边距，让内容不贴边 */
-  border-radius: 12px; /* 圆角，让边框更柔和 */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* 添加阴影，营造悬浮感 */
-  transition: all 0.3s ease; /* 添加过渡动画 */
-  border: 1px solid rgba(255, 255, 255, 0.5); /* 可选：添加一个淡淡的边框 */
+  --waline-theme-color: #4e9def;
+  --waline-active-color: #60a7f1;
 }
 
-/* 鼠标悬浮时，给整个评论区一个轻微放大的效果 */
-.your-comment-container:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  transform: translateY(-5px);
+#w-comments textarea {
+  background: url("/assets/comment.webp") right bottom no-repeat;
 }
 
-/* 评论输入框和用户信息输入框 */
-.your-comment-container textarea,
-.your-comment-container input[type="text"],
-.your-comment-container input[type="email"],
-.your-comment-container input[type="url"] {
-  background-color: rgba(255, 255, 255, 0.7) !important; /* 半透明背景 */
-  color: #333 !important; /* 字体颜色 */
-  border: 1px solid #ccc !important;
-  border-radius: 8px !important; /* 圆角 */
-  backdrop-filter: blur(5px); /* 毛玻璃效果，如果背景是图片会很好看 */
-  transition: all 0.3s ease;
+#w-comments .wl-reaction-list {
+  gap: 24px;
 }
 
-/* 输入框获得焦点（正在输入）时的样式 */
-.your-comment-container textarea:focus,
-.your-comment-container input[type="text"]:focus,
-.your-comment-container input[type="email"]:focus,
-.your-comment-container input[type="url"]:focus {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: #ff8ab4 !important; /* 一个可爱的粉色高亮边框 */
-  box-shadow: 0 0 8px rgba(255, 138, 180, 0.5) !important;
+#w-comments .wl-reaction-img {
+  width: 72px;
+  height: 72px;
 }
 
-/* 修改输入框的提示文字颜色 */
-.your-comment-container ::placeholder {
-  color: #999 !important;
-  opacity: 1; 
-}
-
-/* “提交”按钮 */
-.your-comment-container .submit-button-class { /* 替换成你的提交按钮的 class */
-  background: linear-gradient(135deg, #ff8ab4, #ffc7b2) !important; /* 漂亮的渐变色 */
-  color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  padding: 10px 25px !important;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(255, 138, 180, 0.4);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-/* 鼠标悬浮在按钮上时的效果 */
-.your-comment-container .submit-button-class:hover {
-  transform: translateY(-2px) scale(1.05); /* 向上浮动并轻微放大 */
-  box-shadow: 0 6px 15px rgba(255, 138, 180, 0.6);
-}
-
-/* 已发布的评论条目 */
-.your-comment-container .comment-item-class { /* 替换成你的评论条目的 class */
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  margin-top: 15px !important;
-  padding: 15px !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(5px);
+#w-comments .wl-reaction-votes {
+  font-size: 1em;
 }
