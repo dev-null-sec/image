@@ -1,0 +1,104 @@
+/*
+ * ===================================================================
+ *  Giscus 美化主题 - “晴川无痕” V9 (拆迁版)
+ *  为 dev-null-sec 量身打造的最终决战方案
+ * ===================================================================
+ */
+
+/* --- 【核心配置区】 --- */
+:root {
+  --giscus-main-bg: rgba(255, 255, 255, 0.85) !important;
+  --giscus-main-radius: 20px !important;
+  --giscus-button-bg: #007BFF !important;
+  --giscus-button-bg-hover: #0056b3 !important;
+  --giscus-button-color: #ffffff !important;
+  --giscus-text-color: #2c3e50 !important;
+  --giscus-input-bg: rgba(255, 255, 255, 0.95) !important;
+  --giscus-input-border-color: rgba(200, 200, 200, 0.6) !important;
+  --giscus-separator-color: rgba(0, 0, 0, 0.08) !important;
+  --giscus-bg-image-url: url('') !important; /* <--- 替换背景图 */
+}
+
+/* --- 步骤一：【拆迁】摧毁所有 Giscus 自带的容器样式 --- */
+
+/* 整体容器，移除 Giscus 可能添加的任何内边距和边框 */
+main {
+  padding: 0 !important;
+  border: none !important;
+}
+.gsc-main {
+  padding: 25px !important; /* 我们自己在这里添加内边距 */
+  background-color: var(--giscus-main-bg) !important;
+  border-radius: var(--giscus-main-radius) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 摧毁每一条评论外面的那个该死的带边框的框！ */
+.gsc-comment > .color-bg-primary {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* 摧毁评论输入框外面的那个框 */
+.gsc-comment-box {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* --- 步骤二：【重建】只在我们想要的地方，构建样式 --- */
+
+/* 重建：评论输入框 */
+.gsc-comment-box-textarea {
+  background-color: var(--giscus-input-bg) !important;
+  border: 1px solid var(--giscus-input-border-color) !important;
+  border-radius: 15px !important;
+  color: var(--giscus-text-color) !important;
+  background-image: var(--giscus-bg-image-url) !important;
+  background-position: 100% 100% !important; background-repeat: no-repeat !important; background-size: 100px !important;
+  padding: 15px 120px 15px 15px !important;
+  transition: all 0.3s ease !important; resize: vertical !important;
+}
+.gsc-comment-box-textarea:focus {
+  border-color: var(--giscus-button-bg) !important; box-shadow: 0 0 10px rgba(0, 123, 255, 0.25) !important;
+}
+
+/* 重建：评论之间的分割线 */
+.gsc-comment {
+  padding: 20px 0 !important;
+  border-bottom: 1px solid var(--giscus-separator-color) !important;
+}
+.gsc-timeline > .gsc-comment:last-of-type {
+  border-bottom: none !important; padding-bottom: 0 !important;
+}
+
+/* 重建：蓝色评论按钮 */
+.gsc-comment-box-buttons .btn-primary {
+  background-color: var(--giscus-button-bg) !important; background-image: none !important;
+  color: var(--giscus-button-color) !important; border: none !important;
+  border-radius: 12px !important; font-weight: 600 !important; padding: 10px 20px !important;
+}
+.gsc-comment-box-buttons .btn-primary:hover {
+  background-color: var(--giscus-button-bg-hover) !important; transform: translateY(-2px) !important;
+}
+
+/* --- 步骤三：【清理】隐藏所有我们不需要的垃圾元素 --- */
+.gsc-comment-box-tabs, .gsc-comment-box-md-toolbar, .gsc-comment-box-markdown-hint,
+.gsc-comment-box-bottom > button[type="button"], .gsc-reactions, .gsc-header
+{
+  display: none !important;
+}
+
+/* --- “在 GitHub 上管理”按钮 (保留) --- */
+.gsc-comment-header { position: relative !important; }
+a[href*="discussioncomment"] {
+  position: absolute !important; top: 15px; right: 15px;
+  background-color: rgba(0, 123, 255, 0.1) !important; color: var(--giscus-button-bg) !important;
+  padding: 4px 10px !important; border-radius: 20px !important; font-size: 12px !important;
+}
+a[href*="discussioncomment"] > time { display: none !important; }
+a[href*="discussioncomment"]::after { content: '管理'; }
+a[href*="discussioncomment"]:hover { background-color: rgba(0, 123, 255, 0.2) !important; }
