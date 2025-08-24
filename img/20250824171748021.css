@@ -1,0 +1,112 @@
+/*
+ * ===================================================================
+ *  Giscus 美化主题 - “晴川白鹭” V6
+ *  为 dev-null-sec 量身打造的最终方案
+ * ===================================================================
+ */
+
+/* --- 【核心配置区】你可以在这里轻松修改 --- */
+:root {
+  /* 1. 主要背景：白色的半透明 */
+  --giscus-main-bg: rgba(255, 255, 255, 0.85) !important;
+  
+  /* 2. 边框颜色：淡淡的灰色，也带透明 */
+  --giscus-border-color: rgba(220, 220, 220, 0.5) !important;
+  
+  /* 3. 主要圆角大小 */
+  --giscus-main-radius: 20px !important;
+  
+  /* 4. 按钮颜色 */
+  --giscus-button-bg: #007BFF !important; /* 一个经典的蓝色 */
+  --giscus-button-bg-hover: #0056b3 !important; /* 鼠标悬浮时更深一点 */
+  --giscus-button-color: #ffffff !important;
+
+  /* 5. 【灵魂】评论框背景图！请替换成你自己的图片链接 */
+  --giscus-bg-image-url: url('https://candinya.com/assets/comment.webp') !important; /* <--- 在这里替换！*/
+  
+  /* 6. 其他颜色定义 */
+  --giscus-text-color: #2c3e50 !important;
+  --giscus-input-bg: rgba(255, 255, 255, 0.9) !important;
+  --giscus-input-border-color: rgba(200, 200, 200, 0.6) !important;
+}
+
+
+/* --- 整体容器样式 --- */
+main {
+  background-color: var(--giscus-main-bg) !important;
+  border: 1px solid var(--giscus-border-color) !important;
+  border-radius: var(--giscus-main-radius) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  padding: 25px !important;
+  overflow: hidden; /* 防止背景图溢出 */
+}
+
+
+/* --- 【核心】评论输入框美化 --- */
+.giscus-textarea {
+  background-color: var(--giscus-input-bg) !important;
+  border: 1px solid var(--giscus-input-border-color) !important;
+  border-radius: 15px !important; /* 评论框也用大圆角 */
+  color: var(--giscus-text-color) !important;
+  
+  /* 应用背景图 */
+  background-image: var(--giscus-bg-image-url) !important;
+  background-position: 100% 100% !important; /* 定位到右下角 */
+  background-repeat: no-repeat !important;
+  background-size: 100px !important; /* 控制图片大小，你可以根据你的图片调整 */
+
+  /* 留出空间，防止文字和图片重叠 */
+  padding: 15px 120px 15px 15px !important; 
+  
+  transition: all 0.3s ease !important;
+  resize: vertical !important; /* 允许用户垂直拖动调整大小 */
+}
+
+/* 评论框获取焦点时的效果 */
+.giscus-textarea:focus {
+  border-color: var(--giscus-button-bg) !important;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.25) !important;
+}
+
+
+/* --- 蓝色评论按钮 --- */
+.giscus-button {
+  background: var(--giscus-button-bg) !important;
+  color: var(--giscus-button-color) !important;
+  border: none !important;
+  border-radius: 12px !important; /* 按钮也用圆角 */
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2) !important;
+  transition: all 0.2s ease !important;
+  padding: 10px 20px !important;
+}
+
+.giscus-button:hover {
+  background: var(--giscus-button-bg-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.3) !important;
+}
+
+
+/* --- 统一其他元素的圆角风格 --- */
+.giscus-input {
+  border-radius: 12px !important;
+}
+.giscus-avatar {
+  border-radius: 50% !important;
+}
+
+
+/* --- 【创世纪】“在 GitHub 上管理”按钮 (保留并美化) --- */
+a[href*="discussioncomment"] {
+  position: absolute !important; top: 15px; right: 15px;
+  background-color: rgba(0, 123, 255, 0.1) !important;
+  color: var(--giscus-button-bg) !important;
+  padding: 4px 10px !important; border-radius: 20px !important;
+  font-size: 12px !important; font-weight: 500 !important; text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+a[href*="discussioncomment"] > time { display: none !important; }
+a[href*="discussioncomment"]::after { content: '管理'; }
+a[href*="discussioncomment"]:hover { background-color: rgba(0, 123, 255, 0.2) !important; }
+.gsc-comment-header { position: relative !important; }
