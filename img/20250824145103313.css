@@ -1,0 +1,50 @@
+/* --- 风格二：清新插画 / 手账本风格 --- */
+
+/* 记得替换成你评论区的最外层容器选择器 */
+:root {
+  background: #fdfaf6; /* 温暖的米白色 */
+  border: 2px dashed #e4d8c7; /* 虚线边框，像缝线一样 */
+  padding: 30px !important;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0px #e4d8c7; /* 硬朗的、不模糊的阴影 */
+  transition: all 0.2s ease-in-out;
+}
+.your-comment-container:hover {
+    box-shadow: 8px 8px 0px #d3c4a9; /* 鼠标悬浮时阴影变大 */
+    transform: translate(-3px, -3px);
+}
+
+/* 输入框 */
+.your-comment-container textarea,
+.your-comment-container input[type="text"] {
+  background: #fff !important;
+  border: 1px solid #e4d8c7 !important;
+  border-radius: 10px !important;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05) !important; /* 轻微的内阴影 */
+  color: #6a5a4b !important; /* 柔和的棕色字体 */
+}
+.your-comment-container textarea:focus,
+.your-comment-container input[type="text"]:focus {
+  border-color: #f7b977 !important; /* 温暖的橙色高亮 */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05), 0 0 8px rgba(247, 185, 119, 0.5) !important;
+}
+
+/* 提交按钮 */
+.your-comment-container .submit-button-class {
+  background: #87c7b2 !important; /* 清新的薄荷绿 */
+  color: white !important;
+  border: none !important;
+  border-radius: 50px !important; /* 胶囊形状 */
+  padding: 12px 30px !important;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #6a9c8a; /* 营造立体感的底部阴影 */
+  transition: all 0.1s ease-in-out;
+}
+.your-comment-container .submit-button-class:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #6a9c8a;
+}
+.your-comment-container .submit-button-class:active {
+  transform: translateY(2px); /* 按下时下沉 */
+  box-shadow: 0 2px 0 #6a9c8a;
+}
