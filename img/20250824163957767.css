@@ -1,0 +1,88 @@
+/*
+ * ===================================================================
+ *  Giscus 美化主题 - “琉璃” V4 (半透明虚化版)
+ * ===================================================================
+ */
+
+/* --- 基础与全局设置 --- */
+:root {
+  /* 定义颜色变量，大量使用 rgba 半透明颜色 */
+  --giscus-main-bg: rgba(255, 255, 255, 0.6) !important; /* 半透明白色背景 */
+  --giscus-main-border-color: rgba(255, 255, 255, 0.3) !important; /* 更透明的白色边框 */
+
+  --giscus-text-color: #2c3e50 !important; /* 深邃的蓝灰色，保证可读性 */
+  --giscus-text-color-secondary: #5a6a7a !important;
+  --giscus-link-color: #0984e3 !important;
+  
+  --giscus-input-bg: rgba(255, 255, 255, 0.7) !important; /* 输入框稍微不透明一点，便于输入 */
+  --giscus-input-border-color: rgba(200, 200, 200, 0.4) !important;
+  --giscus-input-border-color-focus: #0984e3 !important; /* 焦点用实色，醒目 */
+
+  --giscus-button-bg: #0984e3 !important; /* 按钮用实色，突出操作 */
+  --giscus-button-color: #ffffff !important;
+  
+  --giscus-comment-border-color: rgba(200, 200, 200, 0.3) !important; /* 评论分割线 */
+}
+
+/* --- 应用到 Giscus 主容器 --- */
+main {
+  /* 【魔法核心】背景虚化！数值越大越模糊 */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  
+  background-color: var(--giscus-main-bg) !important;
+  border: 1px solid var(--giscus-main-border-color) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15) !important;
+  padding: 25px !important;
+}
+
+/* --- 评论输入框 --- */
+.giscus-textarea,
+.giscus-input {
+  background-color: var(--giscus-input-bg) !important;
+  border: 1px solid var(--giscus-input-border-color) !important;
+  border-radius: 10px !important;
+  color: var(--giscus-text-color) !important; /* 确保输入文字颜色正确 */
+}
+.giscus-textarea::placeholder { /* 修改提示文字颜色 */
+    color: var(--giscus-text-color-secondary) !important;
+}
+
+.giscus-textarea:focus,
+.giscus-input:focus {
+  background-color: rgba(255, 255, 255, 0.85) !important; /* 焦点状态下更不透明 */
+  border-color: var(--giscus-input-border-color-focus) !important;
+  box-shadow: 0 0 10px rgba(9, 132, 227, 0.3) !important;
+}
+
+/* --- 提交按钮 --- */
+.giscus-button {
+  background: var(--giscus-button-bg) !important;
+  color: var(--giscus-button-color) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(9, 132, 227, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+.giscus-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(9, 132, 227, 0.4) !important;
+}
+
+/* --- 已发布的评论 --- */
+.giscus-timeline-item {
+  border-top: 1px solid var(--giscus-comment-border-color) !important;
+}
+.giscus-timeline > .giscus-timeline-item:first-child {
+  border-top: none !important;
+}
+.giscus-avatar {
+  border-radius: 50% !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6); /* 给头像加个柔和的描边 */
+}
+.giscus-comment-header,
+.giscus-comment-content {
+  background: none !important;
+}
