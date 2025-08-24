@@ -1,0 +1,90 @@
+/*
+ * ===================================================================
+ *  Giscus 美化主题 - “晴空汽水” V3 (正确选择器版)
+ * ===================================================================
+ */
+
+/* 
+ * !! 诊断探针 V2 !! 
+ * 我们现在直接针对 :root (也就是 <html> 标签)，这是绝对正确的选择器。
+ * 如果您看到了一个亮蓝色的背景，就说明彻底成功了。
+ */
+:root {
+  background-color: #f0f8ff !important; /* 淡蓝色背景 */
+}
+
+
+/* --- 基础与全局设置 (全部使用 !important 强制覆盖) --- */
+:root {
+  /* 变量定义区 */
+  --giscus-main-bg: #f0f8ff !important; 
+  --giscus-main-border-color: #d6eaff !important;
+  --giscus-main-border-radius: 16px !important;
+
+  --giscus-text-color: #3c4858 !important;
+  --giscus-text-color-secondary: #8492a6 !important;
+  --giscus-link-color: #00aaff !important;
+  
+  --giscus-input-bg: #ffffff !important;
+  --giscus-input-border-color: #dce8f2 !important;
+  --giscus-input-border-color-focus: #87ceeb !important;
+
+  --giscus-button-bg: #87ceeb !important;
+  --giscus-button-color: #ffffff !important;
+  
+  --giscus-comment-border-color: #e0effa !important;
+}
+
+/* --- 应用到 Giscus 主容器 --- */
+/* 注意：我们不再使用错误的 main.giscus-frame，Giscus 的主容器就是 <main> */
+main {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  background-color: transparent !important; /* 让 :root 的背景色透出来 */
+  border-radius: var(--giscus-main-border-radius) !important;
+  box-shadow: 0 8px 24px rgba(100, 150, 200, 0.15) !important;
+  border: 1px solid white !important;
+  padding: 25px !important;
+}
+
+/* --- 评论输入框 --- */
+.giscus-textarea,
+.giscus-input {
+  background-color: var(--giscus-input-bg) !important;
+  border: 1px solid var(--giscus-input-border-color) !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.giscus-textarea:focus,
+.giscus-input:focus {
+  border-color: var(--giscus-input-border-color-focus) !important;
+  box-shadow: 0 0 8px rgba(135, 206, 235, 0.4) !important;
+}
+
+/* --- 提交按钮 --- */
+.giscus-button {
+  background: linear-gradient(135deg, var(--giscus-button-bg), #98d8f0) !important;
+  color: var(--giscus-button-color) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.4) !important;
+}
+
+/* --- 已发布的评论 --- */
+.giscus-timeline-item {
+  border-top: 1px solid var(--giscus-comment-border-color) !important;
+}
+
+.giscus-timeline > .giscus-timeline-item:first-child {
+  border-top: none !important;
+}
+
+.giscus-avatar {
+  border-radius: 50% !important;
+}
+
+.giscus-comment-header,
+.giscus-comment-content {
+  background: none !important;
+}
