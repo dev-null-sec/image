@@ -1,0 +1,111 @@
+/*
+ * ===================================================================
+ *  Giscus 美化主题 - “晴川无痕” V8 (精准打击版)
+ *  为 dev-null-sec 量身打造的最终方案
+ * ===================================================================
+ */
+
+/* --- 【核心配置区】 --- */
+:root {
+  --giscus-main-bg: rgba(255, 255, 255, 0.85) !important;
+  --giscus-border-color: rgba(220, 220, 220, 0.5) !important;
+  --giscus-main-radius: 20px !important;
+  --giscus-button-bg: #007BFF !important; /* 蓝色 */
+  --giscus-button-bg-hover: #0056b3 !important;
+  --giscus-button-color: #ffffff !important;
+  --giscus-text-color: #2c3e50 !important;
+  --giscus-input-bg: rgba(255, 255, 255, 0.95) !important;
+  --giscus-input-border-color: rgba(200, 200, 200, 0.6) !important;
+  --giscus-separator-color: rgba(0, 0, 0, 0.08) !important;
+  --giscus-bg-image-url: url('https://candinya.com/assets/comment.webp') !important; /* <--- 替换成你的背景图 */
+}
+
+/* --- 整体容器样式：只有背景和圆角，没有边框 --- */
+main {
+  background-color: var(--giscus-main-bg) !important;
+  border-radius: var(--giscus-main-radius) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  padding: 25px !important;
+  border: none !important;
+}
+
+/* --- 【核心】评论输入框 (Textarea) - 使用了你提供的正确类名！ --- */
+.gsc-comment-box-textarea {
+  background-color: var(--giscus-input-bg) !important;
+  border: 1px solid var(--giscus-input-border-color) !important;
+  border-radius: 15px !important;
+  color: var(--giscus-text-color) !important;
+  background-image: var(--giscus-bg-image-url) !important;
+  background-position: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-size: 100px !important;
+  padding: 15px 120px 15px 15px !important;
+  transition: all 0.3s ease !important;
+  resize: vertical !important;
+}
+.gsc-comment-box-textarea:focus {
+  border-color: var(--giscus-button-bg) !important;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.25) !important;
+}
+
+/* --- 【核心】已发布的评论：无痕化处理 --- */
+.gsc-timeline-item {
+  background: none !important; border: none !important; box-shadow: none !important;
+  padding: 20px 0 !important;
+  border-bottom: 1px solid var(--giscus-separator-color) !important;
+}
+.gsc-timeline > .gsc-timeline-item:last-child {
+  border-bottom: none !important; padding-bottom: 0 !important;
+}
+.gsc-comment-content {
+  background: none !important; border: none !important;
+}
+
+/* --- 【核心】蓝色评论按钮 - 使用了你提供的正确类名！ --- */
+.gsc-comment-box-buttons .btn-primary {
+  background-color: var(--giscus-button-bg) !important;
+  background-image: none !important; /* 移除 GitHub 默认的渐变 */
+  color: var(--giscus-button-color) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !importanter;
+  transition: all 0.2s ease !important;
+}
+.gsc-comment-box-buttons .btn-primary:hover {
+  background-color: var(--giscus-button-bg-hover) !important;
+  transform: translateY(-2px) !important;
+}
+/* 当按钮不可用时 (没输入内容) 的样式 */
+.gsc-comment-box-buttons .btn-primary:disabled {
+  background-color: #cccccc !important;
+  opacity: 0.6 !important;
+}
+
+/* --- 隐藏一些不需要的元素，保持界面干净 --- */
+.gsc-comment-box-tabs,        /* 隐藏 "输入/预览" 切换按钮 */
+.gsc-comment-box-md-toolbar,  /* 隐藏 Markdown 工具栏 */
+.gsc-comment-box-markdown-hint, /* 隐藏 Markdown 语法提示图标 */
+.gsc-comment-box-bottom > button[type="button"] /* 隐藏 "退出登录" 按钮 */
+{
+  display: none !important;
+}
+/* 调整评论框和按钮的布局 */
+.gsc-comment-box-main {
+  border: none !important; /* 移除评论框外围的边框 */
+}
+.gsc-comment-box-bottom {
+  justify-content: flex-end; /* 让“评论”按钮靠右 */
+  margin-top: 10px !important;
+}
+
+/* --- “在 GitHub 上管理”按钮 (保留) --- */
+.gsc-comment-header { position: relative !important; }
+a[href*="discussioncomment"] {
+  position: absolute !important; top: 15px; right: 15px;
+  background-color: rgba(0, 123, 255, 0.1) !important; color: var(--giscus-button-bg) !important;
+  padding: 4px 10px !important; border-radius: 20px !important; font-size: 12px !important;
+}
+a[href*="discussioncomment"] > time { display: none !important; }
+a[href*="discussioncomment"]::after { content: '管理'; }
+a[href*="discussioncomment"]:hover { background-color: rgba(0, 123, 255, 0.2) !important; }
