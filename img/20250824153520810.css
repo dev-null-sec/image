@@ -1,0 +1,35 @@
+/*
+ * ===================================================================
+ *  Giscus 美化主题 - “晴空汽水” (Clear Sky Soda)
+ *  适配浅色系、二次元风格博客
+ * ===================================================================
+ */
+
+/* --- 基础与全局设置 --- */
+:root {
+  /* 整体背景色，淡蓝色，几乎为白色 */
+  --giscus-main-bg: #f0f8ff; 
+  /* 整体边框颜色 */
+  --giscus-main-border-color: #d6eaff;
+  /* 整体圆角大小 */
+  --giscus-main-border-radius: 16px;
+  /* 整体阴影，非常柔和 */
+  --giscus-main-box-shadow: 0 8px 24px rgba(100, 150, 200, 0.15);
+
+  /* 主要文字颜色，深蓝灰 */
+  --giscus-text-color: #3c4858;
+  /* 次要文字颜色，如时间戳 */
+  --giscus-text-color-secondary: #8492a6;
+  /* 链接颜色 */
+  --giscus-link-color: #00aaff;
+  
+  /* 输入框背景色 */
+  --giscus-input-bg: #ffffff;
+  /* 输入框边框颜色 */
+  --giscus-input-border-color: #dce8f2;
+  /* 输入框获取焦点时的边框颜色 */
+  --giscus-input-border-color-focus: #87ceeb; /* 天蓝色 */
+
+  /* 按钮背景色 */
+  --giscus-button-bg: #87ceeb; /* 天蓝色 */
+  /* 按钮
